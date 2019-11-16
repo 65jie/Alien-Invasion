@@ -11,16 +11,20 @@ class Ship:
         # Load the ship image  and get its rect.
         self.image = pygame.image.load('../images/ship.bmp')
         self.rect = self.image.get_rect()
-        
-        # Store a decimal value for the ship's horizontal position.
-        self.x = float(self.rect.x)
 
         # Movement flag
         self.moving_right = False
         self.moving_left = False
         
         # Start each new ship at the bottom center of the screen
-        self.rect.midbottom = self.screen_rect.midbottom
+        # self.rect.midbottom = self.screen_rect.midbottom
+        
+        # ship's x axis setting
+        self.rect.x = ai_game.screen_width *(1/2)
+        #ship's y axis setting
+        self.rect.y = ai_game.screen_height - self.image.get_rect().height
+        # Store a decimal value for the ship's horizontal position.
+        self.x = float(self.rect.x)
 
     def update(self):
         """Update the ship's position based on the movement flag."""
